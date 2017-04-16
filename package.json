@@ -1,0 +1,39 @@
+{
+  "name": "@itavy/error",
+  "version": "0.0.0",
+  "description": "Error module for @itavy namespace",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
+    "coverage:check": "./node_modules/.bin/istanbul check-coverage",
+    "test:check-style": "./node_modules/.bin/eslint index.js lib/* \"test/**/*.js\"",
+    "pretest": "npm run test:check-style"
+  },
+  "pre-commit": [
+    "coverage",
+    "coverage:check"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itavy/error.git"
+  },
+  "author": "Octavian Ionescu <itavyg@gmail.com> (https://github.com/itavy)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itavy/error/issues"
+  },
+  "homepage": "https://github.com/itavy/error#readme",
+  "dependencies": {
+    "fast-safe-stringify": "^1.1.13"
+  },
+  "devDependencies": {
+    "@itavy/test-utilities": "^1.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "pre-commit": "^1.2.2"
+  }
+}
