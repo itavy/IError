@@ -9,6 +9,7 @@
     "coverage:check": "./node_modules/.bin/istanbul check-coverage",
     "test:check-style": "./node_modules/.bin/eslint index.js \"lib/**/*.js\" \"test/**/*.js\"",
     "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "docs-md": "./node_modules/.bin/jsdoc2md --template README.hbs lib/v6x/*.js > README.md",
     "pretest": "npm run test:check-style"
   },
   "pre-commit": {
@@ -42,6 +43,7 @@
     "eyes": "^0.1.8",
     "jaguarjs-jsdoc": "^1.0.2",
     "jsdoc": "^3.4.3",
+    "jsdoc-to-markdown": "^3.0.0",
     "pre-commit": "^1.2.2"
   }
 }

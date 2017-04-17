@@ -17,7 +17,7 @@
         "cleverLinks"   : false,
         "monospaceLinks": false,
         "default"       : {
-            "outputSourceFiles" : false
+            "outputSourceFiles" : true
         },
         "applicationName": "@itavy/Error",
         "linenums"      : true

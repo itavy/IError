@@ -6,3 +6,4 @@ test/
 .eslintrc
 .istanbul.yml
 jsdoc.json
+README.hbs
