@@ -1,6 +1,7 @@
 coverage/
 docs/
 examples/
+test/
 .eslintignore
 .eslintrc
 .istanbul.yml
