@@ -1,4 +1,134 @@
-'use strict';
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Source: IError.js</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/jaguar.css">
+    
+    
+    <script>
+    var config = {"monospaceLinks":false,"cleverLinks":false,"default":{"outputSourceFiles":true},"applicationName":"@itavy/Error","linenums":true};
+    </script>
+    
+
+    
+</head>
+<body>
+<div id="wrap" class="clearfix">
+    
+<div class="navigation">
+    <h3 class="applicationName"><a href="index.html">@itavy/Error</a></h3>
+
+    <div class="search">
+        <input id="search" type="text" class="form-control input-sm" placeholder="Search Documentations">
+    </div>
+    <ul class="list">
+    
+        <li class="item" data-name="itavy/ierror">
+            <span class="title">
+                <a href="itavy_ierror.html">itavy/ierror</a>
+                
+                <span class="static">static</span>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            <span class="subtitle">Typedefs</span>
+            
+                <li data-name="itavy/ierror.IErrorLiteral"><a href="itavy_ierror.html#.IErrorLiteral">IErrorLiteral</a></li>
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="itavy/ierror.rejectIError"><a href="itavy_ierror.html#.rejectIError">rejectIError</a></li>
+            
+                <li data-name="itavy/ierror.resolveIError"><a href="itavy_ierror.html#.resolveIError">resolveIError</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+        <li class="item" data-name="itavy/ierror.IError">
+            <span class="title">
+                <a href="itavy_ierror.IError.html">itavy/ierror.IError</a>
+                
+            </span>
+            <ul class="members itemMembers">
+            
+            <span class="subtitle">Members</span>
+            
+                <li data-name="itavy/ierror.IError#cause"><a href="itavy_ierror.IError.html#cause">cause</a></li>
+            
+                <li data-name="itavy/ierror.IError#code"><a href="itavy_ierror.IError.html#code">code</a></li>
+            
+                <li data-name="itavy/ierror.IError#extra"><a href="itavy_ierror.IError.html#extra">extra</a></li>
+            
+                <li data-name="itavy/ierror.IError#message"><a href="itavy_ierror.IError.html#message">message</a></li>
+            
+                <li data-name="itavy/ierror.IError#name"><a href="itavy_ierror.IError.html#name">name</a></li>
+            
+                <li data-name="itavy/ierror.IError#origStack"><a href="itavy_ierror.IError.html#origStack">origStack</a></li>
+            
+                <li data-name="itavy/ierror.IError#severity"><a href="itavy_ierror.IError.html#severity">severity</a></li>
+            
+                <li data-name="itavy/ierror.IError#source"><a href="itavy_ierror.IError.html#source">source</a></li>
+            
+                <li data-name="itavy/ierror.IError#ts"><a href="itavy_ierror.IError.html#ts">ts</a></li>
+            
+            </ul>
+            <ul class="typedefs itemMembers">
+            
+            </ul>
+            <ul class="methods itemMembers">
+            
+            <span class="subtitle">Methods</span>
+            
+                <li data-name="itavy/ierror.IError#getErrorWithCode"><a href="itavy_ierror.IError.html#getErrorWithCode">getErrorWithCode</a></li>
+            
+                <li data-name="itavy/ierror.IError#getErrorWithName"><a href="itavy_ierror.IError.html#getErrorWithName">getErrorWithName</a></li>
+            
+                <li data-name="itavy/ierror.IError#hasErrorWithCode"><a href="itavy_ierror.IError.html#hasErrorWithCode">hasErrorWithCode</a></li>
+            
+                <li data-name="itavy/ierror.IError#hasErrorWithName"><a href="itavy_ierror.IError.html#hasErrorWithName">hasErrorWithName</a></li>
+            
+                <li data-name="itavy/ierror.IError#toJSON"><a href="itavy_ierror.IError.html#toJSON">toJSON</a></li>
+            
+                <li data-name="itavy/ierror.IError#toString"><a href="itavy_ierror.IError.html#toString">toString</a></li>
+            
+            </ul>
+            <ul class="events itemMembers">
+            
+            </ul>
+        </li>
+    
+    </ul>
+</div>
+    <div class="main">
+        <h1 class="page-title" data-filename="IError.js.html">Source: IError.js</h1>
+        
+
+
+    
+    <section>
+        <article>
+            <pre id="source-code" class="prettyprint source linenums"><code>'use strict';
 
 const common = require('./Common');
 
@@ -64,7 +194,7 @@ class IError extends Error {
      */
     this.code = options.code || null;
 
-    if (common.has(options, 'extra') && common.has(options.extra, 'iError')) {
+    if (common.has(options, 'extra') &amp;&amp; common.has(options.extra, 'iError')) {
       // @todo determine if is needed to wrap in a try/catch
       this.extra = JSON.parse(options.extra.value);
     } else {
@@ -221,7 +351,7 @@ origStackValue = (options) => {
  */
 causeValue = (options) => {
   if (common.has(options, 'cause')) {
-    if (options.cause instanceof Error && !(options.cause instanceof IError)) {
+    if (options.cause instanceof Error &amp;&amp; !(options.cause instanceof IError)) {
       return Reflect.construct(IError, [options.cause]);
     }
     if (common.has(options.cause, 'iError')) {
@@ -238,3 +368,23 @@ causeValue = (options) => {
 module.exports = {
   IError,
 };
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+
+
+        
+
+        <footer>
+            Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Apr 17 2017 23:01:57 GMT+0300 (EEST)
+        </footer>
+    </div>
+</div>
+<script>prettyPrint();</script>
+<script src="scripts/jaguar.js"></script>
+</body>
+</html>

@@ -42,152 +42,152 @@ this will produce:
 ```
 
 ## API
-<a name="itavy/Error"></a>
+<a name="itavy/ierror"></a>
 
-## itavy/Error : <code>object</code>
+## itavy/ierror : <code>object</code>
 **Kind**: global namespace  
 
-* [itavy/Error](#itavy/Error) : <code>object</code>
-    * [.IError](#itavy/Error.IError)
-        * [new IError(options)](#new_itavy/Error.IError_new)
-        * [.message](#itavy/Error.IError+message) : <code>String</code>
-        * [.name](#itavy/Error.IError+name) : <code>String</code>
-        * [.ts](#itavy/Error.IError+ts) : <code>Number</code>
-        * [.severity](#itavy/Error.IError+severity) : <code>String</code>
-        * [.source](#itavy/Error.IError+source) : <code>String</code>
-        * [.code](#itavy/Error.IError+code) : <code>String</code>
-        * [.extra](#itavy/Error.IError+extra) : <code>\*</code>
-        * [.origStack](#itavy/Error.IError+origStack) : <code>String</code>
-        * [.cause](#itavy/Error.IError+cause) : <code>[IError](#itavy/Error.IError)</code>
-        * [.toJSON()](#itavy/Error.IError+toJSON) ⇒ <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code>
-        * [.toString()](#itavy/Error.IError+toString) ⇒ <code>String</code>
-        * [.hasErrorWithName(name)](#itavy/Error.IError+hasErrorWithName) ⇒ <code>Boolean</code>
-        * [.hasErrorWithCode(code)](#itavy/Error.IError+hasErrorWithCode) ⇒ <code>Boolean</code>
-        * [.getErrorWithName(name)](#itavy/Error.IError+getErrorWithName) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
-        * [.getErrorWithCode(code)](#itavy/Error.IError+getErrorWithCode) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
-    * [.rejectIError(request)](#itavy/Error.rejectIError) ⇒ <code>Promise</code>
-    * [.resolveIError(request)](#itavy/Error.resolveIError) ⇒ <code>Promise</code>
-    * [.IErrorLiteral](#itavy/Error.IErrorLiteral) : <code>Object</code>
+* [itavy/ierror](#itavy/ierror) : <code>object</code>
+    * [.IError](#itavy/ierror.IError)
+        * [new IError(options)](#new_itavy/ierror.IError_new)
+        * [.message](#itavy/ierror.IError+message) : <code>String</code>
+        * [.name](#itavy/ierror.IError+name) : <code>String</code>
+        * [.ts](#itavy/ierror.IError+ts) : <code>Number</code>
+        * [.severity](#itavy/ierror.IError+severity) : <code>String</code>
+        * [.source](#itavy/ierror.IError+source) : <code>String</code>
+        * [.code](#itavy/ierror.IError+code) : <code>String</code>
+        * [.extra](#itavy/ierror.IError+extra) : <code>\*</code>
+        * [.origStack](#itavy/ierror.IError+origStack) : <code>String</code>
+        * [.cause](#itavy/ierror.IError+cause) : <code>[IError](#itavy/ierror.IError)</code>
+        * [.toJSON()](#itavy/ierror.IError+toJSON) ⇒ <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code>
+        * [.toString()](#itavy/ierror.IError+toString) ⇒ <code>String</code>
+        * [.hasErrorWithName(name)](#itavy/ierror.IError+hasErrorWithName) ⇒ <code>Boolean</code>
+        * [.hasErrorWithCode(code)](#itavy/ierror.IError+hasErrorWithCode) ⇒ <code>Boolean</code>
+        * [.getErrorWithName(name)](#itavy/ierror.IError+getErrorWithName) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
+        * [.getErrorWithCode(code)](#itavy/ierror.IError+getErrorWithCode) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
+    * [.rejectIError(request)](#itavy/ierror.rejectIError) ⇒ <code>Promise</code>
+    * [.resolveIError(request)](#itavy/ierror.resolveIError) ⇒ <code>Promise</code>
+    * [.IErrorLiteral](#itavy/ierror.IErrorLiteral) : <code>Object</code>
 
-<a name="itavy/Error.IError"></a>
+<a name="itavy/ierror.IError"></a>
 
-### itavy/Error.IError
+### itavy/ierror.IError
 Error struture
 
-**Kind**: static class of <code>[itavy/Error](#itavy/Error)</code>  
+**Kind**: static class of <code>[itavy/ierror](#itavy/ierror)</code>  
 
-* [.IError](#itavy/Error.IError)
-    * [new IError(options)](#new_itavy/Error.IError_new)
-    * [.message](#itavy/Error.IError+message) : <code>String</code>
-    * [.name](#itavy/Error.IError+name) : <code>String</code>
-    * [.ts](#itavy/Error.IError+ts) : <code>Number</code>
-    * [.severity](#itavy/Error.IError+severity) : <code>String</code>
-    * [.source](#itavy/Error.IError+source) : <code>String</code>
-    * [.code](#itavy/Error.IError+code) : <code>String</code>
-    * [.extra](#itavy/Error.IError+extra) : <code>\*</code>
-    * [.origStack](#itavy/Error.IError+origStack) : <code>String</code>
-    * [.cause](#itavy/Error.IError+cause) : <code>[IError](#itavy/Error.IError)</code>
-    * [.toJSON()](#itavy/Error.IError+toJSON) ⇒ <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code>
-    * [.toString()](#itavy/Error.IError+toString) ⇒ <code>String</code>
-    * [.hasErrorWithName(name)](#itavy/Error.IError+hasErrorWithName) ⇒ <code>Boolean</code>
-    * [.hasErrorWithCode(code)](#itavy/Error.IError+hasErrorWithCode) ⇒ <code>Boolean</code>
-    * [.getErrorWithName(name)](#itavy/Error.IError+getErrorWithName) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
-    * [.getErrorWithCode(code)](#itavy/Error.IError+getErrorWithCode) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
+* [.IError](#itavy/ierror.IError)
+    * [new IError(options)](#new_itavy/ierror.IError_new)
+    * [.message](#itavy/ierror.IError+message) : <code>String</code>
+    * [.name](#itavy/ierror.IError+name) : <code>String</code>
+    * [.ts](#itavy/ierror.IError+ts) : <code>Number</code>
+    * [.severity](#itavy/ierror.IError+severity) : <code>String</code>
+    * [.source](#itavy/ierror.IError+source) : <code>String</code>
+    * [.code](#itavy/ierror.IError+code) : <code>String</code>
+    * [.extra](#itavy/ierror.IError+extra) : <code>\*</code>
+    * [.origStack](#itavy/ierror.IError+origStack) : <code>String</code>
+    * [.cause](#itavy/ierror.IError+cause) : <code>[IError](#itavy/ierror.IError)</code>
+    * [.toJSON()](#itavy/ierror.IError+toJSON) ⇒ <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code>
+    * [.toString()](#itavy/ierror.IError+toString) ⇒ <code>String</code>
+    * [.hasErrorWithName(name)](#itavy/ierror.IError+hasErrorWithName) ⇒ <code>Boolean</code>
+    * [.hasErrorWithCode(code)](#itavy/ierror.IError+hasErrorWithCode) ⇒ <code>Boolean</code>
+    * [.getErrorWithName(name)](#itavy/ierror.IError+getErrorWithName) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
+    * [.getErrorWithCode(code)](#itavy/ierror.IError+getErrorWithCode) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
 
-<a name="new_itavy/Error.IError_new"></a>
+<a name="new_itavy/ierror.IError_new"></a>
 
 #### new IError(options)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code> | error info |
+| options | <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code> | error info |
 
-<a name="itavy/Error.IError+message"></a>
+<a name="itavy/ierror.IError+message"></a>
 
 #### iError.message : <code>String</code>
 Error message
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
-<a name="itavy/Error.IError+name"></a>
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
+<a name="itavy/ierror.IError+name"></a>
 
 #### iError.name : <code>String</code>
 Error name
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>&#x27;ERROR&#x27;</code>  
-<a name="itavy/Error.IError+ts"></a>
+<a name="itavy/ierror.IError+ts"></a>
 
 #### iError.ts : <code>Number</code>
 Error UNIX timestamp
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>Date.now()</code>  
-<a name="itavy/Error.IError+severity"></a>
+<a name="itavy/ierror.IError+severity"></a>
 
 #### iError.severity : <code>String</code>
 Error severity
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>&#x27;ERROR&#x27;</code>  
-<a name="itavy/Error.IError+source"></a>
+<a name="itavy/ierror.IError+source"></a>
 
 #### iError.source : <code>String</code>
 Error source
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>null</code>  
-<a name="itavy/Error.IError+code"></a>
+<a name="itavy/ierror.IError+code"></a>
 
 #### iError.code : <code>String</code>
 Error code
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>null</code>  
-<a name="itavy/Error.IError+extra"></a>
+<a name="itavy/ierror.IError+extra"></a>
 
 #### iError.extra : <code>\*</code>
 Error extra information
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>null</code>  
-<a name="itavy/Error.IError+origStack"></a>
+<a name="itavy/ierror.IError+origStack"></a>
 
 #### iError.origStack : <code>String</code>
 Error stack trace
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>null</code>  
 **Read only**: true  
-<a name="itavy/Error.IError+cause"></a>
+<a name="itavy/ierror.IError+cause"></a>
 
-#### iError.cause : <code>[IError](#itavy/Error.IError)</code>
+#### iError.cause : <code>[IError](#itavy/ierror.IError)</code>
 Error cause
 
-**Kind**: instance property of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance property of <code>[IError](#itavy/ierror.IError)</code>  
 **Default**: <code>null</code>  
 **Read only**: true  
-<a name="itavy/Error.IError+toJSON"></a>
+<a name="itavy/ierror.IError+toJSON"></a>
 
-#### iError.toJSON() ⇒ <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code>
+#### iError.toJSON() ⇒ <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code>
 get IError literal representation
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
-**Returns**: <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code> - IError literal representation  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
+**Returns**: <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code> - IError literal representation  
 **Access**: public  
-<a name="itavy/Error.IError+toString"></a>
+<a name="itavy/ierror.IError+toString"></a>
 
 #### iError.toString() ⇒ <code>String</code>
 get IError json stringify
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
 **Returns**: <code>String</code> - JSON representation of IError  
 **Access**: public  
-<a name="itavy/Error.IError+hasErrorWithName"></a>
+<a name="itavy/ierror.IError+hasErrorWithName"></a>
 
 #### iError.hasErrorWithName(name) ⇒ <code>Boolean</code>
 Check all cause chain to see if an error with requested name exists
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
 **Returns**: <code>Boolean</code> - true if an error with a name exists  
 **Access**: public  
 
@@ -195,12 +195,12 @@ Check all cause chain to see if an error with requested name exists
 | --- | --- | --- |
 | name | <code>String</code> | name of the error to look after |
 
-<a name="itavy/Error.IError+hasErrorWithCode"></a>
+<a name="itavy/ierror.IError+hasErrorWithCode"></a>
 
 #### iError.hasErrorWithCode(code) ⇒ <code>Boolean</code>
 Check all cause chain to see if an error with requested code exists
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
 **Returns**: <code>Boolean</code> - true if an error with a code exists  
 **Access**: public  
 
@@ -208,50 +208,50 @@ Check all cause chain to see if an error with requested code exists
 | --- | --- | --- |
 | code | <code>String</code> | code of the error to look after |
 
-<a name="itavy/Error.IError+getErrorWithName"></a>
+<a name="itavy/ierror.IError+getErrorWithName"></a>
 
-#### iError.getErrorWithName(name) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
+#### iError.getErrorWithName(name) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
 Traverse all chain to get error with requested name
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
-**Returns**: <code>[IError](#itavy/Error.IError)</code> \| <code>null</code> - IError found or null otherwise  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
+**Returns**: <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code> - IError found or null otherwise  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>String</code> | name of the error to look after |
 
-<a name="itavy/Error.IError+getErrorWithCode"></a>
+<a name="itavy/ierror.IError+getErrorWithCode"></a>
 
-#### iError.getErrorWithCode(code) ⇒ <code>[IError](#itavy/Error.IError)</code> \| <code>null</code>
+#### iError.getErrorWithCode(code) ⇒ <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code>
 Traverse all chain to get error with requested code
 
-**Kind**: instance method of <code>[IError](#itavy/Error.IError)</code>  
-**Returns**: <code>[IError](#itavy/Error.IError)</code> \| <code>null</code> - IError found or null otherwise  
+**Kind**: instance method of <code>[IError](#itavy/ierror.IError)</code>  
+**Returns**: <code>[IError](#itavy/ierror.IError)</code> \| <code>null</code> - IError found or null otherwise  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | code | <code>String</code> | code of the error to look after |
 
-<a name="itavy/Error.rejectIError"></a>
+<a name="itavy/ierror.rejectIError"></a>
 
-### itavy/Error.rejectIError(request) ⇒ <code>Promise</code>
+### itavy/ierror.rejectIError(request) ⇒ <code>Promise</code>
 Rejects with IError
 
-**Kind**: static method of <code>[itavy/Error](#itavy/Error)</code>  
+**Kind**: static method of <code>[itavy/ierror](#itavy/ierror)</code>  
 **Returns**: <code>Promise</code> - rejects with an IError  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| request | <code>[IErrorLiteral](#itavy/Error.IErrorLiteral)</code> \| <code>[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</code> \| <code>[IError](#itavy/Error.IError)</code> | error to reject with |
+| request | <code>[IErrorLiteral](#itavy/ierror.IErrorLiteral)</code> \| <code>[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</code> \| <code>[IError](#itavy/ierror.IError)</code> | error to reject with |
 
-<a name="itavy/Error.resolveIError"></a>
+<a name="itavy/ierror.resolveIError"></a>
 
-### itavy/Error.resolveIError(request) ⇒ <code>Promise</code>
+### itavy/ierror.resolveIError(request) ⇒ <code>Promise</code>
 Resolves with IError
 
-**Kind**: static method of <code>[itavy/Error](#itavy/Error)</code>  
+**Kind**: static method of <code>[itavy/ierror](#itavy/ierror)</code>  
 **Returns**: <code>Promise</code> - resolves with an IError  
 **Access**: public  
 
@@ -259,10 +259,10 @@ Resolves with IError
 | --- | --- | --- |
 | request | <code>Object</code> | error to resolve with |
 
-<a name="itavy/Error.IErrorLiteral"></a>
+<a name="itavy/ierror.IErrorLiteral"></a>
 
-### itavy/Error.IErrorLiteral : <code>Object</code>
-**Kind**: static typedef of <code>[itavy/Error](#itavy/Error)</code>  
+### itavy/ierror.IErrorLiteral : <code>Object</code>
+**Kind**: static typedef of <code>[itavy/ierror](#itavy/ierror)</code>  
 **Properties**
 
 | Name | Type | Default | Description |
@@ -274,7 +274,7 @@ Resolves with IError
 | source | <code>String</code> | <code></code> | Error source |
 | code | <code>String</code> | <code></code> | Error code |
 | extra | <code>\*</code> | <code></code> | Extra information needed to be held with the error |
-| cause | <code>[IError](#itavy/Error.IError)</code> \| <code>[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</code> \| <code>null</code> |  | original cause which triggered |
+| cause | <code>[IError](#itavy/ierror.IError)</code> \| <code>[Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error)</code> \| <code>null</code> |  | original cause which triggered |
 | origStack | <code>String</code> |  | stack of the error this error on chain |
 
 

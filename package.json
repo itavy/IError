@@ -1,5 +1,5 @@
 {
-  "name": "@itavy/error",
+  "name": "@itavy/ierror",
   "version": "1.0.1",
   "description": "Error module for @itavy namespace",
   "main": "index.js",
