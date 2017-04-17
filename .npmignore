@@ -1,0 +1,7 @@
+coverage/
+docs/
+examples/
+.eslintignore
+.eslintrc
+.istanbul.yml
+jsdoc.json

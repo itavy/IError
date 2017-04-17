@@ -7,13 +7,17 @@
     "test": "./node_modules/.bin/mocha",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha",
     "coverage:check": "./node_modules/.bin/istanbul check-coverage",
-    "test:check-style": "./node_modules/.bin/eslint index.js lib/* \"test/**/*.js\"",
+    "test:check-style": "./node_modules/.bin/eslint index.js \"lib/**/*.js\" \"test/**/*.js\"",
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
     "pretest": "npm run test:check-style"
   },
-  "pre-commit": [
-    "coverage",
-    "coverage:check"
-  ],
+  "pre-commit": {
+    "run": [
+      "test:check-style",
+      "coverage",
+      "coverage:check"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/itavy/error.git"
@@ -25,15 +29,19 @@
   },
   "homepage": "https://github.com/itavy/error#readme",
   "dependencies": {
-    "fast-safe-stringify": "^1.1.13"
+    "fast-safe-stringify": "^1.1.13",
+    "semver": "^5.3.0"
   },
   "devDependencies": {
-    "@itavy/test-utilities": "^1.0.0",
+    "@itavy/test-utilities": "^1.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3",
+    "eyes": "^0.1.8",
+    "jaguarjs-jsdoc": "^1.0.2",
+    "jsdoc": "^3.4.3",
     "pre-commit": "^1.2.2"
   }
 }

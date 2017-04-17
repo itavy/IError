@@ -1,0 +1,54 @@
+# IError
+
+This is a module provides support for some missing features of native errors, working as a drop in replacement for native errors:
+
+- chain of causes
+- custom information for the error
+- timestamp of the error occurrence
+- serialization and composing back the object from serialization 
+
+## Instalation
+
+```
+npm install @itavy/IError
+```
+
+## Quick Example
+```
+const IError = require('@itavy/IError').IError;
+
+const err = new IError('test error');
+console.log(err);
+```
+this will produce:
+```
+{ ERROR: test error
+    at Object.<anonymous> (/**********/test.js:3:13)
+    at Module._compile (module.js:570:32)
+    at Object.Module._extensions..js (module.js:579:10)
+    at Module.load (module.js:487:32)
+    at tryModuleLoad (module.js:446:12)
+    at Function.Module._load (module.js:438:3)
+    at Module.runMain (module.js:604:10)
+    at run (bootstrap_node.js:394:7)
+    at startup (bootstrap_node.js:149:9)
+    at bootstrap_node.js:509:3
+  name: 'ERROR',
+  ts: 1492430124565,
+  severity: 'ERROR',
+  source: null,
+  code: null,
+  extra: null }
+```
+
+## API
+
+see [API Documentation](https://github.com/itavy/IError/blob/master/docs/index.html)
+
+## Usage
+
+see [Example](https://github.com/itavy/IError/blob/master/examples/example.js)
+
+## LICENSE
+
+[MIT](https://github.com/itavy/IError/blob/master/LICENSE.md)
