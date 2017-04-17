@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itavy/error.git"
+    "url": "git+https://github.com/itavy/IError.git"
   },
   "author": "Octavian Ionescu <itavyg@gmail.com> (https://github.com/itavy)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/itavy/error/issues"
+    "url": "https://github.com/itavy/IError/issues"
   },
-  "homepage": "https://github.com/itavy/error#readme",
+  "homepage": "https://github.com/itavy/IError#readme",
   "dependencies": {
     "fast-safe-stringify": "^1.1.13",
     "semver": "^5.3.0"

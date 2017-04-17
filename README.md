@@ -10,12 +10,12 @@ This is a module provides support for some missing features of native errors, wo
 ## Instalation
 
 ```
-npm install @itavy/IError
+npm install @itavy/ierror
 ```
 
 ## Quick Example
 ```
-const IError = require('@itavy/IError').IError;
+const IError = require('@itavy/ierror').IError;
 
 const err = new IError('test error');
 console.log(err);
