@@ -1,6 +1,6 @@
 {
   "name": "@itavy/ierror",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Error module for @itavy namespace",
   "main": "index.js",
   "keywords": [
