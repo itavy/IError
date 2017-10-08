@@ -26,8 +26,30 @@ describe('Export', () => {
         return Promise.resolve();
       }));
 
+  it('Should reject with a IError using provided builder', () =>
+    new Promise((resolve, reject) => {
+      moduleLib.rejectIError(fixtures.rejectMessage, reject);
+    })
+      .should.be.rejected
+      .then((response) => {
+        expect(response).to.be.instanceOf(IErrorLib.IError);
+        expect(response.message).to.be.equal(fixtures.rejectMessage);
+        return Promise.resolve();
+      }));
+
   it('Should resolve with a IError', () =>
     moduleLib.resolveIError(fixtures.resolveMessage)
+      .should.be.fulfilled
+      .then((response) => {
+        expect(response).to.be.instanceOf(IErrorLib.IError);
+        expect(response.message).to.be.equal(fixtures.resolveMessage);
+        return Promise.resolve();
+      }));
+
+  it('Should resolve with a IError using provided builder', () =>
+    new Promise((resolve) => {
+      moduleLib.resolveIError(fixtures.resolveMessage, resolve);
+    })
       .should.be.fulfilled
       .then((response) => {
         expect(response).to.be.instanceOf(IErrorLib.IError);
