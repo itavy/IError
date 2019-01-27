@@ -24,7 +24,6 @@ describe('Export', () => {
       return Promise.resolve();
     }));
 
-<<<<<<< HEAD
   it('Should reject with a IError using provided builder', () => new Promise((resolve, reject) => {
     moduleLib.rejectIError(fixtures.rejectMessage, reject);
   })
@@ -35,8 +34,6 @@ describe('Export', () => {
       return Promise.resolve();
     }));
 
-=======
->>>>>>> [dev] bump dev dependencies and drop node 6.0
   it('Should resolve with a IError', () => moduleLib.resolveIError(fixtures.resolveMessage)
     .should.be.fulfilled
     .then((response) => {
@@ -44,7 +41,6 @@ describe('Export', () => {
       expect(response.message).to.be.equal(fixtures.resolveMessage);
       return Promise.resolve();
     }));
-<<<<<<< HEAD
 
   it('Should resolve with a IError using provided builder', () => new Promise((resolve) => {
     moduleLib.resolveIError(fixtures.resolveMessage, resolve);
@@ -55,6 +51,4 @@ describe('Export', () => {
       expect(response.message).to.be.equal(fixtures.resolveMessage);
       return Promise.resolve();
     }));
-=======
->>>>>>> [dev] bump dev dependencies and drop node 6.0
 });
