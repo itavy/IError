@@ -1,19 +1,20 @@
 'use strict';
 
 const semver = require('semver');
-const v6x = require('./lib/v6x');
 
-const minNodeVersion = 'v6.9.1';
+const minNodeVersion = '8.0.0';
 
 /**
  * check if min nodejs requirements are met
- * @returns {Object} @itavy/error module
+ * @returns {Object} @itavy/IError module
  */
 const getVersionModule = () => {
-  if (semver.gte(process.version, minNodeVersion)) {
-    return v6x;
+  if (semver.lt(process.version, minNodeVersion)) {
+    throw Error(`Invalid node version for @itavy/ierror, current: ${process.version}, min: ${minNodeVersion}`);
   }
-  throw Error(`Invalid node version for @itavy/error, current: ${process.version}, min: ${minNodeVersion}`);
+
+  // eslint-disable-next-line global-require
+  return require('./lib/latest');
 };
 
 module.exports = getVersionModule();
