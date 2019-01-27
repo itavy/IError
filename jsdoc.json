@@ -4,7 +4,7 @@
     },
     "source": {
         "include": [
-            "./lib/v6x/"
+            "./lib/latest/"
         ],
         "exclude": [],
         "includePattern": ".+\\.js(doc)?$",
@@ -19,7 +19,7 @@
         "default"       : {
             "outputSourceFiles" : true
         },
-        "applicationName": "@itavy/Error",
+        "applicationName": "@itavy/IError",
         "linenums"      : true
     },
     "markdown"  : {
@@ -34,7 +34,7 @@
         "lenient"       : false,
         "destination"   : "./docs",
         "template"      : "./node_modules/jaguarjs-jsdoc",
-        "sourceRoot"    : "https://github.com/itavy/IError/master/lib/v6x",
+        "sourceRoot"    : "https://github.com/itavy/IError/master/lib/latest",
         "repo"          : "https://github.com/itavy/IError"
     }
 }

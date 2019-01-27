@@ -1,9 +1,8 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-// const sinon = require('@itavy/test-utilities').getSinon();
-const moduleLib = require('../lib/v6x/index');
-const IErrorLib = require('../lib/v6x/IError');
+const { expect } = require('@itavy/test-utilities');
+const moduleLib = require('../lib/latest/index');
+const IErrorLib = require('../lib/latest/IError');
 const fixtures = require('./Fixtures');
 
 describe('Export', () => {
@@ -17,21 +16,19 @@ describe('Export', () => {
     done();
   });
 
-  it('Should reject with a IError', () =>
-    moduleLib.rejectIError(fixtures.rejectMessage)
-      .should.be.rejected
-      .then((response) => {
-        expect(response).to.be.instanceOf(IErrorLib.IError);
-        expect(response.message).to.be.equal(fixtures.rejectMessage);
-        return Promise.resolve();
-      }));
+  it('Should reject with a IError', () => moduleLib.rejectIError(fixtures.rejectMessage)
+    .should.be.rejected
+    .then((response) => {
+      expect(response).to.be.instanceOf(IErrorLib.IError);
+      expect(response.message).to.be.equal(fixtures.rejectMessage);
+      return Promise.resolve();
+    }));
 
-  it('Should resolve with a IError', () =>
-    moduleLib.resolveIError(fixtures.resolveMessage)
-      .should.be.fulfilled
-      .then((response) => {
-        expect(response).to.be.instanceOf(IErrorLib.IError);
-        expect(response.message).to.be.equal(fixtures.resolveMessage);
-        return Promise.resolve();
-      }));
+  it('Should resolve with a IError', () => moduleLib.resolveIError(fixtures.resolveMessage)
+    .should.be.fulfilled
+    .then((response) => {
+      expect(response).to.be.instanceOf(IErrorLib.IError);
+      expect(response.message).to.be.equal(fixtures.resolveMessage);
+      return Promise.resolve();
+    }));
 });
