@@ -1,11 +1,22 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-const sinon = require('@itavy/test-utilities').getSinon();
-const IErrorLib = require('../lib/v6x/IError');
+const { expect, getSinonSandbox } = require('@itavy/test-utilities');
+const IErrorLib = require('../lib/latest/IError');
 const fixtures = require('./Fixtures');
 
 describe('Serialization', () => {
+  let sandbox;
+
+  beforeEach((done) => {
+    sandbox = getSinonSandbox();
+    done();
+  });
+
+  afterEach((done) => {
+    sandbox.restore();
+    done();
+  });
+
   it('Should have null for cause', (done) => {
     const testError = new IErrorLib.IError(fixtures.nullSerializedCauseErrorInfo);
 
@@ -48,22 +59,22 @@ describe('Serialization', () => {
   });
 
 
-  it('Should return call toJSON method for cause', sinon.test(function fSinonTest(done) {
+  it('Should return call toJSON method for cause', (done) => {
     const testError = new IErrorLib.IError(fixtures.toJsonSerializationWithCause);
-    const spy = this.spy(testError.cause, 'toJSON');
+    const spy = sandbox.spy(testError.cause, 'toJSON');
     testError.toJSON();
 
     expect(spy.callCount).to.be.equal(1);
     done();
-  }));
+  });
 
-  it('Should return json representation of IError', sinon.test(function fSinonTest(done) {
+  it('Should return json representation of IError', (done) => {
     const testError = new IErrorLib.IError(fixtures.toJsonSerializationNoCause);
-    const spy = this.spy(testError, 'toJSON');
+    const spy = sandbox.spy(testError, 'toJSON');
     const testRepresentation = JSON.parse(testError.toString());
 
     expect(testRepresentation).to.be.eql(fixtures.expectedJsonNoCause);
     expect(spy.callCount).to.be.equal(1);
     done();
-  }));
+  });
 });

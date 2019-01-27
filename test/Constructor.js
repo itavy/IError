@@ -1,7 +1,8 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-const IErrorLib = require('../lib/v6x/IError');
+// eslint-disable-next-line prefer-destructuring
+const expect = require('@itavy/test-utilities').expect;
+const IErrorLib = require('../lib/latest/IError');
 const fixtures = require('./Fixtures');
 
 describe('Initialization', () => {
