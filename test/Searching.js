@@ -1,8 +1,7 @@
 'use strict';
 
-const expect = require('@itavy/test-utilities').getExpect();
-const sinon = require('@itavy/test-utilities').getSinon();
-const IErrorLib = require('../lib/v6x/IError');
+const { expect, getSinonSandbox } = require('@itavy/test-utilities');
+const IErrorLib = require('../lib/latest/IError');
 const fixtures = require('./Fixtures');
 
 let e1;
@@ -27,8 +26,20 @@ after((done) => {
 });
 
 describe('Searching', () => {
-  it('Search by unknown name should return null', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'hasErrorWithParameters');
+  let sandbox;
+
+  beforeEach((done) => {
+    sandbox = getSinonSandbox();
+    done();
+  });
+
+  afterEach((done) => {
+    sandbox.restore();
+    done();
+  });
+
+  it('Search by unknown name should return null', (done) => {
+    const spy = sandbox.spy(e3, 'hasErrorWithParameters');
     const eSearch = e3.getErrorWithName(fixtures.unknownName);
 
     expect(spy.callCount).to.be.equal(1);
@@ -36,7 +47,7 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(null);
     done();
-  }));
+  });
 
   it('Search by name should return expected error from chain', (done) => {
     const eSearch = e3.getErrorWithName(fixtures.error1.name);
@@ -46,8 +57,8 @@ describe('Searching', () => {
     done();
   });
 
-  it('Search by unknown code should return null', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'hasErrorWithParameters');
+  it('Search by unknown code should return null', (done) => {
+    const spy = sandbox.spy(e3, 'hasErrorWithParameters');
     const eSearch = e3.getErrorWithCode(fixtures.unknownCode);
 
     expect(spy.callCount).to.be.equal(1);
@@ -55,7 +66,7 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(null);
     done();
-  }));
+  });
 
   it('Search by code should return expected error from chain', (done) => {
     const eSearch = e3.getErrorWithCode(fixtures.error2.code);
@@ -65,8 +76,8 @@ describe('Searching', () => {
     done();
   });
 
-  it('Should return false for unknown error name in chain', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'getErrorWithName');
+  it('Should return false for unknown error name in chain', (done) => {
+    const spy = sandbox.spy(e3, 'getErrorWithName');
     const eSearch = e3.hasErrorWithName(fixtures.unknownName);
 
     expect(spy.callCount).to.be.equal(1);
@@ -74,10 +85,10 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(false);
     done();
-  }));
+  });
 
-  it('Should return true for existing error name in chain', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'getErrorWithName');
+  it('Should return true for existing error name in chain', (done) => {
+    const spy = sandbox.spy(e3, 'getErrorWithName');
     const eSearch = e3.hasErrorWithName(fixtures.error1.name);
 
     expect(spy.callCount).to.be.equal(1);
@@ -85,10 +96,10 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(true);
     done();
-  }));
+  });
 
-  it('Should return false for unknown error code in chain', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'getErrorWithCode');
+  it('Should return false for unknown error code in chain', (done) => {
+    const spy = sandbox.spy(e3, 'getErrorWithCode');
     const eSearch = e3.hasErrorWithCode(fixtures.unknownCode);
 
     expect(spy.callCount).to.be.equal(1);
@@ -96,10 +107,10 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(false);
     done();
-  }));
+  });
 
-  it('Should return true for existing error code in chain', sinon.test(function fSinonTest(done) {
-    const spy = this.spy(e3, 'getErrorWithCode');
+  it('Should return true for existing error code in chain', (done) => {
+    const spy = sandbox.spy(e3, 'getErrorWithCode');
     const eSearch = e3.hasErrorWithCode(fixtures.error1.code);
 
     expect(spy.callCount).to.be.equal(1);
@@ -107,5 +118,5 @@ describe('Searching', () => {
 
     expect(eSearch).to.be.equal(true);
     done();
-  }));
+  });
 });
